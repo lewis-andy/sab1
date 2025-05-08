@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nairobi National Park</title>
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-image: url("/api/placeholder/1200/600");
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        #site-title {
+            color: #2e7d32;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-style: italic;
+            color: #5d4037;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            background-color: #2e7d32;
+            padding: 15px 0;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .menu {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .menu li {
+            margin: 0 20px;
+        }
+        
+        .menu-link {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .menu-link:hover, .menu-link.active {
+            background-color: #1b5e20;
+        }
+        
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .section-title {
+            color: #2e7d32;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2e7d32;
+        }
+        
+        /* Image Gallery */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .gallery-item {
+            width: 30%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            padding: 10px;
+            text-align: center;
+            background-color: #f5f5f5;
+            font-style: italic;
+        }
+        
+        /* Wildlife Table */
+        .wildlife-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .wildlife-table th, .wildlife-table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        .wildlife-table th {
+            background-color: #2e7d32;
+            color: white;
+        }
+        
+        .wildlife-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .wildlife-table tr:hover {
+            background-color: #e8f5e9;
+        }
+        
+        /* Features List */
+        .features-list {
+            margin: 20px 0 20px 40px;
+        }
+        
+        .features-list li {
+            margin-bottom: 10px;
+            color: #33691e;
+        }
+        
+        /* Visit Info */
+        .visit-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid #2e7d32;
+        }
+        
+        .info-title {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .visit-steps {
+            counter-reset: step-counter;
+            list-style-type: none;
+            margin-left: 20px;
+        }
+        
+        .visit-steps li {
+            margin-bottom: 10px;
+            counter-increment: step-counter;
+        }
+        
+        .visit-steps li::before {
+            content: counter(step-counter);
+            margin-right: 10px;
+            font-size: 1rem;
+            background-color: #2e7d32;
+            color: white;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 50%;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .submit-btn {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #1b5e20;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            color: #666;
+        }
+        
+        .social-links {
+            margin: 15px 0;
+        }
+        
+        .social-links a {
+            color: #2e7d32;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+            
+            .menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .menu li {
+                margin: 10px 0;
+            }
+            
+            .gallery-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="site-title">Nairobi National Park</h1>
+            <p class="tagline">The World's Wildlife Capital at the City's Doorstep</p>
+        </header>
+        
+        <nav>
+            <ul class="menu">
+                <li><a href="#home" class="menu-link active">Home</a></li>
+                <li><a href="#about" class="menu-link">About</a></li>
+                <li><a href="#contact" class="menu-link">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section id="home">
+                <h2 class="section-title">Welcome to Nairobi National Park</h2>
+                <p>Experience the wonder of African wildlife just minutes from downtown Nairobi. Established in 1946, Nairobi National Park is Kenya's oldest national park and offers a unique opportunity to view diverse wildlife against the backdrop of the city skyline.</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Lions at Nairobi National Park">
+                        <div class="image-caption">Majestic lions roaming freely</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Giraffe with Nairobi skyline">
+                        <div class="image-caption">Giraffes with city skyline backdrop</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Zebras grazing">
+                        <div class="image-caption">Zebras grazing in open grasslands</div>
+                    </div>
+                </div>
+                
+                <p>Despite its relatively small size (117 square kilometers), the park boasts an impressive variety of wildlife and is a crucial sanctuary for endangered black rhinos, lions, leopards, cheetahs, hyenas, buffaloes, giraffes, and diverse bird species.</p>
+                
+                <div class="visit-info">
+                    <h3 class="info-title">Plan Your Visit</h3>
+                    <ol class="visit-steps">
+                        <li>Check current entry fees and park hours on the Kenya Wildlife Service website</li>
+                        <li>Book accommodation nearby or plan for a day trip</li>
+                        <li>Consider hiring a knowledgeable guide for the best experience</li>
+                        <li>Bring binoculars, camera, water, and sun protection</li>
+                        <li>Respect wildlife by maintaining a safe distance and following park regulations</li>
+                    </ol>
+                </div>
+            </section>
+            
+            <section id="about">
+                <h2 class="section-title">About The Park</h2>
+                <p>Nairobi National Park is a unique ecosystem that supports a rich biodiversity despite its proximity to Kenya's capital city. The park's landscape is characterized by open grass plains, scattered acacia bushes, and forest areas along the bank of the Embakasi River.</p>
+                
+                <h3 class="info-title">Wildlife Species</h3>
+                <table class="wildlife-table">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Species</th>
+                            <th>Best Viewing Season</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Big Cats</td>
+                            <td>Lions, Leopards, Cheetahs</td>
+                            <td>Early morning/late afternoon, year-round</td>
+                        </tr>
+                        <tr>
+                            <td>Herbivores</td>
+                            <td>Giraffes, Zebras, Wildebeests, Buffaloes</td>
+                            <td>Year-round</td>
+                        </tr>
+                        <tr>
+                            <td>Endangered</td>
+                            <td>Black Rhinos</td>
+                            <td>Dry season (June-October)</td>
+                        </tr>
+                        <tr>
+                            <td>Birds</td>
+                            <td>Over 400 species including ostriches</td>
+                            <td>Migratory season (November-April)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 class="info-title">Key Features</h3>
+                <ul class="features-list">
+                    <li>Only protected wildlife sanctuary in the world bordering a capital city</li>
+                    <li>Home to over 100 mammal species and 400+ bird species</li>
+                    <li>Important breeding ground for the endangered black rhino</li>
+                    <li>Diverse ecosystems including forests, plains, and rivers</li>
+                    <li>Ivory Burning Site Monument commemorating Kenya's commitment to ending ivory trade</li>
+                    <li>Animal orphanage housing and rehabilitating injured and orphaned wildlife</li>
+                </ul>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Black Rhino">
+                        <div class="image-caption">Endangered black rhino</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Ivory Burning Monument">
+                        <div class="image-caption">Ivory Burning Site Monument</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Bird watching">
+                        <div class="image-caption">Rich birdlife within the park</div>
+                    </div>
+                </div>
+                
+                <p>The park plays a crucial role in conservation efforts and provides an important wildlife corridor connected to the Athi-Kapiti plains and Kitengela conservation area. These migration corridors are vital for the long-term survival of the park's wildlife populations.</p>
+            </section>
+            
+            <section id="contact">
+                <h2 class="section-title">Contact Us</h2>
+                <p>Have questions about visiting Nairobi National Park? Want to book a guided tour or get more information? Reach out to us using the form below or through our official channels.</p>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Park entrance">
+                        <div class="image-caption">Main entrance to the park</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Safari drive">
+                        <div class="image-caption">Safari experience in the park</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="/api/placeholder/400/320" alt="Picnic site">
+                        <div class="image-caption">Designated picnic areas</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Nairobi National Park. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
+            </div>
+            <p>Address: Langata Road, P.O. Box 42076-00100, Nairobi, Kenya</p>
+            <p>Email: info@nairobinationalpark.ke | Phone: +254 20 2379407</p>
+        </footer>
+    </div>
+</body>
+</html>

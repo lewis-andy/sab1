@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIV Layout Example - Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top/Banner Section -->
+    <div id="banner">
+        <h1>Nairobi National Park</h1>
+        <p class="slogan">Experience Wildlife at the City's Doorstep</p>
+    </div>
+    
+    <!-- Menu Section -->
+    <div id="menu">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+        </ul>
+    </div>
+    
+    <!-- Mid Section (Left and Right) -->
+    <div id="mid-section">
+        <!-- Left Content -->
+        <div class="left-content">
+            <h2>Photo Gallery</h2>
+            <p>Explore the beauty and diversity of Nairobi National Park through our collection of stunning photographs. These images showcase the incredible wildlife and landscapes that make this park a unique treasure at the edge of Kenya's capital city.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/320" alt="Lion at Nairobi National Park">
+                    <p>Majestic lion surveying the grasslands</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/320" alt="Giraffe at Nairobi National Park">
+                    <p>Giraffe with Nairobi skyline in background</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/320" alt="Zebras at Nairobi National Park">
+                    <p>Zebra herd during migration season</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/400/320" alt="Black Rhino at Nairobi National Park">
+                    <p>Endangered black rhino in protective sanctuary</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Content -->
+        <div class="right-content">
+            <div class="info-box">
+                <h3>Photography Tips</h3>
+                <ul class="photo-tips">
+                    <li>Early morning offers the best lighting conditions</li>
+                    <li>Bring a telephoto lens for wildlife shots</li>
+                    <li>Patience is key for capturing animal behavior</li>
+                    <li>Consider the city skyline as a unique backdrop</li>
+                    <li>Respect park rules and keep a safe distance</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>Share Your Photos</h3>
+                <p>Have great photos from your visit to Nairobi National Park? Share them with us!</p>
+                <form class="photo-form">
+                    <input type="text" placeholder="Your Name" class="form-input">
+                    <input type="email" placeholder="Your Email" class="form-input">
+                    <input type="file" class="file-input">
+                    <button type="submit" class="submit-button">Submit Photo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom/Footer Section -->
+    <div id="footer">
+        <p>&copy; 2025 Nairobi National Park. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+</body>
+</html>
